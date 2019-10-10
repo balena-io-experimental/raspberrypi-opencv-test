@@ -1,0 +1,10 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:buster
+
+WORKDIR /usr/src/app
+RUN apt-get update && \
+	apt-get install -yq \
+	python3-opencv
+
+COPY ./app .
+
+CMD [ "python3", "./frame_test.py" ]

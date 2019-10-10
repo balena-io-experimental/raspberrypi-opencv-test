@@ -1,0 +1,14 @@
+version: '2'
+volumes:
+    resin-data:
+services:
+  opencv-test:
+    build: ./opencv-test
+    volumes:
+      - 'resin-data:/data'
+    restart: always
+    privileged: true
+    network_mode: host
+    labels:
+      io.balena.features.kernel-modules: '1'
+      io.balena.features.firmware: '1'
